@@ -23,15 +23,12 @@ var todos = [
 ]
 
 class Todo extends Component {
-  
   constructor(props){
     super(props);
-    
     this.state = {
       todos
     }
     this.handleAddTodo = this.handleAddTodo.bind(this);
-
   }
   
   handleRemoveTodo(index){
@@ -46,8 +43,6 @@ class Todo extends Component {
     this.setState({todos: [...this.state.todos, todo]})
   }
   
-
-  
   render() {
     return (
       <div className='container'>
@@ -57,11 +52,8 @@ class Todo extends Component {
           {this.state.todos.map((todo, index) => 
             <li className='list-group-item' key={index}>
               <h4 className='list-group-item-heading'>{todo.todoTitle} <small><span className='label label-info'>{todo.todoPriority}</span></small></h4>
-
-
               <p><span className='glyphicon glyphicon-user'></span>{todo.todoResponsible}</p>
               <p>{todo.todoDescription}</p>
-
               <button className='btn btn-danger btn-sm' onClick={this.handleRemoveTodo.bind(this, index)}><span className='glyphicon glyphicon-trash'></span> Delete</button>
             </li>
           )}
